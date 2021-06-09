@@ -1,9 +1,6 @@
 package com.ai;
 
-/**
- * Author:Abhishek Srivastava
- * Class IssueNode : Represents the issue a car can have, and way to move further for an appropriate response
- */
+
 public class IssueNode {
 
     private String issue;
@@ -16,7 +13,7 @@ public class IssueNode {
         this(issue, null, null);
     }
 
-    //Constructor for issue and its sub nodes
+    //Overload constructor for issue and its sub nodes
     public IssueNode(String issue, IssueNode yes, IssueNode no) {
         this.issue = issue;
         this.YES = yes;
