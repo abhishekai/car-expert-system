@@ -1,5 +1,9 @@
 package com.ai;
 
+/**
+ * Author:Abhishek Srivastava
+ * Class IssueNode : Represents the issue a car can have, and way to move further for an appropriate response
+ */
 
 public class IssueNode {
 
