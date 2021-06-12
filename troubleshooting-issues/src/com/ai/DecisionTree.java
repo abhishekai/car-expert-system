@@ -1,6 +1,5 @@
 package com.ai;
 
-
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -47,22 +46,36 @@ public class DecisionTree {
     }
 
     public void chatBot() {
-        root = walksThroughIssues(root);
+        try {
+            root = walksThroughIssues(root);
+        }
+        // Handling null node in a way to start the chat from beginning or exit gracefully.
+        catch (NullPointerException nullPointerException) {
+            System.out.println();
+            String userInput = getResponse("No information available, start again y/n? ");
+            System.out.println();
+            if(userInput.equals("y")){
+                chatBot();
+            }
+            else {
+                System.out.println("*****Thanks for visiting car-expert system****");
+                System.exit(0);
+            }
+        }
     }
 
-    private IssueNode walksThroughIssues(IssueNode node) {
+    private IssueNode walksThroughIssues(IssueNode node) throws NullPointerException {
         if (node.YES != null || node.NO != null) {
-            String userInput = getResponse(node.toString() + " y/n? ");
-
-            switch (userInput) {
-                case "y":
-                    node.YES = walksThroughIssues(node.YES);
-                    break;
-                case "n":
-                    node.NO = walksThroughIssues(node.NO);
+                String userInput = getResponse(node.toString() + " y/n? ");
+                switch (userInput) {
+                    case "y":
+                        node.YES = walksThroughIssues(node.YES);
+                        break;
+                    case "n":
+                        node.NO = walksThroughIssues(node.NO);
+                }
             }
-
-        } else {
+        else {
             System.out.println(node.toString());
         }
         return node;
@@ -75,10 +88,17 @@ public class DecisionTree {
                 trim().
                 toLowerCase();
         if (!userInput.equals("y") && !userInput.equals("n")) {
-            System.out.println("Please answer y or n.\n");
+            System.out.println("Valid input is y or n only.\n");
             return getResponse(consoleMessage);
         }
         return userInput;
     }
 
+    public boolean exitChat(String exitMessage) {
+        System.out.println("");
+        if (getResponse(exitMessage).equals("y"))
+            return true;
+         else
+             return false;
+    }
 }

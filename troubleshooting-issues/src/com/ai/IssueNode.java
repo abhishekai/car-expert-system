@@ -13,7 +13,7 @@ public class IssueNode {
     public IssueNode NO; // To move towards right in the DecisionTree
 
     //Constructor for only response
-    public IssueNode(String issue){
+    public IssueNode(String issue) {
         this(issue, null, null);
     }
 
@@ -22,10 +22,11 @@ public class IssueNode {
         this.issue = issue;
         this.YES = yes;
         this.NO = no;
+
+        //System.out.println(issue+", "+yes+ ", "+no);
     }
 
-    public String toString(){
+    public String toString() {
         return issue;
     }
-
 }
