@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 
 public class DecisionTree {
-
+    public String byeMessage = "*****Thanks for visiting car-expert system****";
     private IssueNode root;
     private Scanner userFeedback;
 
@@ -57,7 +57,7 @@ public class DecisionTree {
                 chatBot();
             }
             else {
-                System.out.println("*****Thanks for visiting car-expert system****");
+                System.out.println(byeMessage);
                 System.exit(0);
             }
         }

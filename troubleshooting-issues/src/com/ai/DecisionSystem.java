@@ -31,5 +31,6 @@ public class DecisionSystem {
         do {
             decisionTree.chatBot();
         }while (decisionTree.exitChat("Do yo want to continue y/n? "));
+        System.out.println(decisionTree.byeMessage);
     }
 }
