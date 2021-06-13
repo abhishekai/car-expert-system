@@ -12,7 +12,6 @@ import java.util.Scanner;
 
 public class DecisionTree {
 
-    public boolean exit;
     private IssueNode root;
     private Scanner userFeedback;
 
